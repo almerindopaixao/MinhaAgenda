@@ -1,0 +1,58 @@
+@import './form.css';
+
+body {
+    background: var(--primary-color);
+    color: rgba(0, 0, 0, 0.6);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    line-height: 1.6em;
+    
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__container {
+    background: var(--white-color);
+    border-radius: 8px;
+    padding: 60px 60px 75px 60px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+    margin-inline: 30px;
+}
+
+.login__header {
+    margin-bottom: 45px;
+}
+
+@media only screen and (min-width: 576px)  { 
+    .login__container {
+        width: 80%;
+    }  
+}
+
+@media only screen and (min-width: 768px)  { 
+    .login__container {
+        width: 70%;
+    }  
+}
+
+@media only screen and (min-width: 992px) { 
+    .login__container {
+        width: 60%;
+    }  
+}
+
+@media only screen and (min-width: 1200px) {
+    .login__container {
+        width: 50%;
+    }  
+}
+
+@media (min-width: 1400px) {
+    .login__container {
+        width: 30%;
+    }  
+}
