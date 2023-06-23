@@ -5,6 +5,8 @@ import express from 'express';
 
 // Routes
 import { homeRoute } from './src/routes/homeRoute.js'
+import { loginRoute } from './src/routes/loginRoute.js';
+import { registerRoute } from './src/routes/registerRoute.js';
 
 const app = express();
 
@@ -17,11 +19,12 @@ app.use(express.static(resolve(__dirname, 'public')));
 app.set('views', resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-const port = 3000;
+const port = 3001;
 
-// Home (Tela Inicial)
 app.use('/', homeRoute);
+app.use('/login', loginRoute);
+app.use('/cadastro', registerRoute);
 
 app.listen(port, () => {
-    console.log(`Servidor executando em http://localhost:${3000}`);
+    console.log(`Servidor executando em http://localhost:${port}`);
 });
