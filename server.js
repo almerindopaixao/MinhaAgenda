@@ -1,30 +1,69 @@
+// Native Libs
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
+// External Libs
+import 'dotenv/config.js'
 import express from 'express';
+import session from 'express-session';
+import connectSessionSequelize from 'connect-session-sequelize';
+import helmet from 'helmet';
 
 // Routes
-import { homeRoute } from './src/routes/homeRoute.js'
-import { loginRoute } from './src/routes/loginRoute.js';
-import { registerRoute } from './src/routes/registerRoute.js';
+import { homeRoute } from './src/routes/homeRoute.js';
+import { authRoute } from './src/routes/authRoute.js';
 
-const app = express();
+// Connection DB
+import { sequelize } from './src/db/sequelize.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// FAuth with cookies
+const SequelizeStore = connectSessionSequelize(session.Store);
+
+const sessionOptions = session({
+    secret: process.env.SECRET,
+    store: new SequelizeStore({
+        db: sequelize,
+    }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        maxAge: parseInt(process.env.SESSION_EX) || 1000 * 60 * 30,
+        httpOnly: true
+    }
+});
+
+const app = express();
+
+app.use(helmet());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(resolve(__dirname, 'public')));
+app.use(sessionOptions);
 
 app.set('views', resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
 const port = 3001;
 
+// Apply Routes 
 app.use('/', homeRoute);
-app.use('/login', loginRoute);
-app.use('/cadastro', registerRoute);
+app.use('/auth', authRoute);
 
-app.listen(port, () => {
-    console.log(`Servidor executando em http://localhost:${port}`);
+// 404
+app.use('*', (req, res) => {
+    res.render('404');
 });
+
+sequelize.authenticate()
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Servidor executando em http://localhost:${port}`);
+        });
+    })
+    .catch((err) => console.log(err));
+
+// app.listen(port, () => {
+//     console.log(`Servidor executando em http://localhost:${port}`);
+// });
