@@ -14,7 +14,7 @@ body {
     align-items: center;
 }
 
-.login__container {
+.auth__container {
     background: var(--white-color);
     border-radius: 8px;
     padding: 60px 60px 75px 60px;
@@ -23,45 +23,36 @@ body {
     margin-inline: 30px;
 }
 
-.login__header {
+.auth__header {
     margin-bottom: 45px;
 }
 
-.form__register a {
-    color: var(--secondary-color);
-    font-weight: 600;
-}
-
-.form__register a:hover {
-    text-decoration: underline;
-}
-
 @media only screen and (min-width: 576px)  { 
-    .login__container {
+    .auth__container {
         width: 80%;
     }  
 }
 
 @media only screen and (min-width: 768px)  { 
-    .login__container {
+    .auth__container {
         width: 70%;
     }  
 }
 
 @media only screen and (min-width: 992px) { 
-    .login__container {
+    .auth__container {
         width: 60%;
     }  
 }
 
 @media only screen and (min-width: 1200px) {
-    .login__container {
+    .auth__container {
         width: 50%;
     }  
 }
 
 @media (min-width: 1400px) {
-    .login__container {
+    .auth__container {
         width: 30%;
     }  
 }

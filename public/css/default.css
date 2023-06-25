@@ -2,6 +2,7 @@
     --header-height: 3rem;
     --nav-width: 68px;
     --secondary-color: #17a3b8;
+    --secondary-color-dark: #167f90;
     --primary-color: #343a40;
     --primary-color-light: #a3abb3;
     --white-color: #F7F6FB;
@@ -20,4 +21,8 @@
 
 a {
     text-decoration: none;
+}
+
+.text-danger {
+    color: red;
 }

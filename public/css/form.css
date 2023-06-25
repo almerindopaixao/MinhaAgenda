@@ -1,20 +1,33 @@
 @import './default.css';
 
 .form {
+    --gap-default: 30px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 25px;
+    gap: var(--gap-default);
 }
 
 .form__group {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: var(--gap-default);
 }
 
-.form__group label {
+.input__group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.form__group > .input__group {
+    flex: 1 1 160px;
+}
+
+.input__group label {
     display: block;
     margin: 0 0 10px;
     color: rgba(0, 0, 0, 0.6);
@@ -23,7 +36,7 @@
     line-height: 1;
 }
 
-.form__group input {
+.input__group input {
     outline: none;
     display: block;
     background: rgba(0, 0, 0, 0.1);
@@ -37,11 +50,11 @@
     font-size: inherit;
     font-weight: 500;
     line-height: inherit;
-    transition: 0.3s ease;
 }
 
-.form__group input:focus {
+.input__group input:focus {
     color: rgba(0, 0, 0, 0.8);
+    outline: 1px solid var(--secondary-color-dark);
 }
 
 .form button[type="submit"] {
@@ -54,8 +67,24 @@
     color: var(--white-color);
     font-family: inherit;
     font-size: inherit;
-    font-weight: 500;
+    font-weight: 600;
     line-height: inherit;
     cursor: pointer;
     margin-top: 30px;
+    transition: background-color 0.5s ease;
+}
+
+.form button[type="submit"]:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+.field-required {
+    color: red;
+}
+
+.msg-text {
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -0.8rem;
+    transform: translateY(40%);
 }
