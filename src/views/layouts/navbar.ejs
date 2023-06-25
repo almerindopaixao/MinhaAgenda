@@ -4,10 +4,10 @@
     </div>
 
     <div class="header__user">
-        <div class="header__user-img">
+        <!-- <div class="header__user-img">
             <img src="https://avatars.githubusercontent.com/u/58123442?v=4" alt="">
-        </div>
-        <p>Almerindo Paixão</p>
+        </div> -->
+        <p><%= `${user.firstName} ${user.lastName}` %></p>
     </div>
 </header>
 <div class="l-navbar" id="nav-bar">
@@ -19,14 +19,9 @@
             </a>
 
             <div class="nav_list">
-                <a href="#" class="nav__link">
+                <a href="#" class="nav__link active">
                     <i class='bx bxs-calendar nav__icon'></i>
                     <span class="nav__name">Agendas</span>
-                </a>
-
-                <a href="#" class="nav__link active">
-                    <i class='bx bxs-contact nav__icon'></i>
-                    <span class="nav__name">Contatos</span>
                 </a>
 
                 <a href="#" class="nav__link">
@@ -36,7 +31,7 @@
             </div>
         </div> 
         
-        <a href="#" class="nav__link"> 
+        <a href="/auth/logout" class="nav__link"> 
             <i class='bx bxs-log-out nav__icon'></i> 
             <span class="nav__name">Sair</span> 
         </a>
