@@ -1,5 +1,5 @@
-<div>
-    <div>
+<div class="card">
+    <div class="card__content">
       <div>
         <h3><%= agenda.title %></h3>
         <p><%= agenda.description %></p>
@@ -11,10 +11,16 @@
         <span><%= agenda.contactsCount %> Contatos</span>
       </div>
     </div>
-    <div>
-      <a href="/agenda/editar/<%= agenda.id %>">Editar</a>
-      <a href="/agenda/deletar/<%= agenda.id %>">Excluir</a>
+    <div class="card__actions">
+      <a href="/agenda/editar/<%= agenda.id %>">
+        <i class='bx bxs-edit'></i>
+        Editar
+      </a>
+      <a href="/agenda/deletar/<%= agenda.id %>">
+        <i class='bx bx-trash' ></i>
+        Excluir
+      </a>
       <a href="/agenda/<%= agenda.id %>">Ver Contatos</a>
       <a href="/agenda/<%= agenda.id %>/contato">Adicionar Contato</a>
     </div>
-  </div>
+</div>
