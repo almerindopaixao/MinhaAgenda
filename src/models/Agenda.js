@@ -27,6 +27,6 @@ const Agenda = sequelize.define('Agenda', {
     }
 });
 
-Agenda.hasMany(Contact, { foreignKey: 'agendaId' });
+Agenda.hasMany(Contact, { foreignKey: 'agendaId',  onDelete: 'cascade' });
 
 export { Agenda };

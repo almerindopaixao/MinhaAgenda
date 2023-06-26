@@ -26,6 +26,12 @@
           <span>Novo contato</span>
         </a>
       </section>
+
+      <section>
+        <% for (let contact of agenda.contacts) { %>
+          <%- include('components/contact-card', { contact }) %>
+        <% } %>
+      </section>
     </main>
   <body>
 </html>

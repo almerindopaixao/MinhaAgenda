@@ -13,7 +13,7 @@ import helmet from 'helmet';
 import { homeRoute } from './src/routes/homeRoute.js';
 import { authRoute } from './src/routes/authRoute.js';
 import { agendaRoute } from './src/routes/agendaRoute.js';
-import { contactRoute } from './src/routes/contactRoute.js';
+import { userRoute } from './src/routes/userRoute.js';
 
 // Connection DB
 import { sequelize } from './src/db/sequelize.js';
@@ -53,9 +53,10 @@ const port = 3001;
 app.use('/', homeRoute);
 app.use('/auth', authRoute);
 app.use('/agenda', agendaRoute);
+app.use('/usuario', userRoute);
 
 // 404
-app.use('*', (req, res) => {
+app.use('*', (_, res) => {
     res.render('404');
 });
 
@@ -66,7 +67,3 @@ sequelize.authenticate()
         });
     })
     .catch((err) => console.log(err));
-
-// app.listen(port, () => {
-//     console.log(`Servidor executando em http://localhost:${port}`);
-// });

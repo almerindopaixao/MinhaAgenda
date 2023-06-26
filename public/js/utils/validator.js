@@ -13,6 +13,19 @@ export function isEmail(email) {
 
 /**
  * 
+ * @param {string} phone 
+ * @returns 
+ */
+export function isPhone(phone) {
+  // Expressão regular para validar o formato do telefone
+  const regex = /^\(\d{2}\) \d{5}-\d{4}$/;
+
+  // Verificar se o telefone corresponde ao formato esperado
+  return regex.test(phone);
+}
+
+/**
+ * 
  * @param {string} value 
  * @param {[number, number]} range 
  * @returns 

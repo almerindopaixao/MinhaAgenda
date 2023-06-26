@@ -30,6 +30,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .header__toggle {

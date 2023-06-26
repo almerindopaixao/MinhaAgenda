@@ -26,13 +26,10 @@ export class Form {
 
     msg(msg, elemento) {
         const small = document.createElement('small');
-        small.setAttribute('class', 'msg-text text-danger')
-        small.innerHTML = msg 
-        elemento.insertAdjacentElement('afterend', small)
+        small.setAttribute('class', 'msg-text text-danger');
+        small.innerHTML = msg ;
+        elemento.insertAdjacentElement('afterend', small);
     }
 
     validate(event) {}
 }
-
-const form = new Form('form');
-form.init();

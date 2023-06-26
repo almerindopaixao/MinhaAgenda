@@ -10,7 +10,6 @@ const Contact = sequelize.define('Contact', {
     email: {
         type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true,
     },
     firstName: {
         type: DataTypes.STRING(50),
@@ -18,15 +17,15 @@ const Contact = sequelize.define('Contact', {
     },
     lastName: {
         type: DataTypes.STRING(50),
-        allowNull: true,
+        allowNull: false,
     },
     phone: {
         type: DataTypes.STRING(20),
-        allowNull: true,
+        allowNull: false,
     },
     address: {
         type: DataTypes.STRING(190),
-        allowNull: true,
+        allowNull: false,
     },
     notes: {
         type: DataTypes.STRING(255),
@@ -36,7 +35,7 @@ const Contact = sequelize.define('Contact', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Agenda',
+          model: 'Agendas',
           key: 'id',
         }
     }

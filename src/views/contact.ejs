@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <title>MinhaAgenda</title>
+    <script defer src="/js/header.js"></script>
+    <script defer type="module" src="/js/contactForm.js"></script>
+  </head>
+  <body>
+    <%- include('components/navbar') %> 
+
+    <main class="main">
+        <% if(contact.id) { %> 
+          <h1>Editar Contato</h1>
+        <% } else { %> 
+          <h1>Criar Contato</h1>
+        <% } %> 
+
+        <section class="contact__container">
+          <% if(contact.id) { %>
+            <form 
+              class="form" 
+              id="form" 
+              method="POST" 
+              action="/agenda/<%= contact.agendaId %>/contato/editar/<%= contact.id %>">
+            <% } else { %> 
+            <form 
+              class="form" 
+              id="form" 
+              method="POST" 
+              action="/agenda/<%= contact.agendaId %>/contato">
+          <% } %> 
+
+            <div class="form__group">
+                <div class="input__group">
+                    <label for="firstName">Nome <span class="field-required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        required="required" 
+                        value="<%= contact.firstName %>"
+                        placeholder="John"
+                    />
+                </div>
+
+                <div class="input__group">
+                    <label for="lastName">Sobrenome <span class="field-required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="lastName"
+                        name="lastName" 
+                        required="required"  
+                        value="<%= contact.lastName %>"  
+                        placeholder="Doe"
+                    />
+                </div>
+            </div>
+
+            <div class="input__group">
+                <label for="title">E-mail <span class="field-required">*</span></label>
+                <input 
+                  type="email"
+                  id="email"
+                  name="email"
+                  required="required"
+                  value="<%= contact.email %>"
+                  placeholder="johndoe@email.com"
+                />
+            </div>
+
+            <div class="form__group">
+                <div class="input__group">
+                    <label for="phone">Telefone <span class="field-required">*</span></label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required="required" 
+                        value="<%= contact.phone %>" 
+                        placeholder="(99) 99999-9999"
+                        pattern="\(\d{2}\) \d{5}-\d{4}"
+                    />
+                </div>
+
+                <div class="input__group">
+                    <label for="address">Endereço <span class="field-required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="address"
+                        name="address" 
+                        required="required" 
+                        value="<%= contact.address %>" 
+                        placeholder="Alameda dos anjos, Nº S/N"
+                    />
+                </div>
+            </div>
+
+            <div class="input__group">
+                <label for="notes">Notas</label>
+                <textarea 
+                  id="notes"
+                  name="notes"
+                  cols="30"
+                  rows="8"
+                  placeholder="Qualquer coisa referente à identificação do contato"
+                ><%= contact.notes %></textarea>
+            </div>
+            <button type="submit"><%= contact.id ? 'Editar' : 'Criar' %></button>
+          </form>
+        </section>
+    </main>
+  <body>
+</html>

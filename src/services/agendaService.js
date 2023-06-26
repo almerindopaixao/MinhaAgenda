@@ -20,8 +20,22 @@ export class AgendaService {
         });
     }
 
-    async findAllContactByAgendaId(agendaId) {
-        return [];
+    async findAllWithContactstByAgendaId(agendaId) {
+        const agenda = await Agenda.findByPk(agendaId, { raw: true });
+
+        if (!agenda) return null;
+
+        const contacts = await Contact.findAll({
+            raw: true,
+            where: {
+                agendaId: agenda.id
+            }
+        })
+
+        return {
+            ...agenda,
+            contacts,
+        };
     }
 
     async findById(agendaId) {

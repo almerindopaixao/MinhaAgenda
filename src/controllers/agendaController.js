@@ -14,12 +14,10 @@ export class AgendaController {
             const agendaId = req.params.id;
             if (!agendaId) return res.render('404');
     
-            const a = await this.agendaService.findAllContactByAgendaId(agendaId);
-            console.log('agenda contatos', a);
+            const agenda = await this.agendaService.findAllWithContactstByAgendaId(agendaId);
+            if (!agenda) return res.render('404');
 
-            res.render('agenda-contatos', { 
-                agenda: { title: 't', description: 't', id: 1, contatos: [] }
-            });
+            res.render('agenda-contatos', { agenda });
         } catch (e) {
             console.error(e);
             return res.render('500', { error: e });
