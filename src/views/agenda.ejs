@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <title>MinhaAgenda</title>
+    <script defer src="/js/header.js"></script>
+    <script defer type="module" src="/js/agendaForm.js"></script>
+  </head>
+  <body>
+    <%- include('components/navbar') %> 
+
+    <main class="main">
+        <% if(agenda.id) { %> 
+          <h1>Editar Agenda</h1>
+        <% } else { %> 
+          <h1>Criar Agenda</h1>
+        <% } %> 
+
+        <section class="agenda__container">
+          <% if(agenda.id) { %>
+            <form 
+              class="form" 
+              id="form" 
+              method="POST" 
+              action="/agenda/editar/<%= agenda.id %>">
+            <% } else { %> 
+            <form 
+              class="form" 
+              id="form" 
+              method="POST" 
+              action="/agenda">
+          <% } %> 
+
+            <div class="input__group">
+                <label for="title">Título <span class="field-required">*</span></label>
+                <input 
+                  type="text"
+                  id="title"
+                  name="title"
+                  required="required"
+                  value="<%= agenda.title %>"
+                />
+            </div>
+            <div class="input__group">
+                <label for="description">Descrição</label>
+                <textarea 
+                  id="description"
+                  name="description"
+                  cols="30"
+                  rows="8"
+                ><%= agenda.description %></textarea>
+            </div>
+
+            <button type="submit"><%= agenda.id ? 'Editar' : 'Criar' %></button>
+          </form>
+        </section>
+    </main>
+  <body>
+</html>

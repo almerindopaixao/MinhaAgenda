@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/sequelize.js';
-import { Agenda } from './Agenda.js';
 
 const Contact = sequelize.define('Contact', {
     id: {
@@ -37,7 +36,7 @@ const Contact = sequelize.define('Contact', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Agenda,
+          model: 'Agenda',
           key: 'id',
         }
     }

@@ -1,0 +1,23 @@
+.add__button {
+    outline: none;
+    background: var(--secondary-color);
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    color: var(--white-color);
+    font-weight: 600;
+    line-height: inherit;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.add__button:hover {
+    background-color: var(--secondary-color-dark);
+}

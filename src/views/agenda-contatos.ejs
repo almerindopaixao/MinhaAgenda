@@ -17,19 +17,14 @@
     <%- include('components/navbar') %> 
 
     <main class="main">
-      <h1>Minhas Agendas</h1>
+      <h1><%= agenda.title %></h1>
+      <p><%= agenda.description %></p>
 
       <section>
-        <a href="/agenda" class="add__button">
+        <a href="/agenda/<%= agenda.id %>/contato" class="add__button">
           <i class='bx bx-plus'></i>
-          <span>Nova agenda</span>
+          <span>Novo contato</span>
         </a>
-      </section>
-
-      <section>
-        <% for (let agenda of agendas) { %>
-          <%- include('components/agenda-card', { agenda }) %>
-        <% } %>
       </section>
     </main>
   <body>

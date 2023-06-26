@@ -36,7 +36,8 @@
     line-height: 1;
 }
 
-.input__group input {
+.input__group input,
+.input__group textarea {
     outline: none;
     display: block;
     background: rgba(0, 0, 0, 0.1);
@@ -52,7 +53,12 @@
     line-height: inherit;
 }
 
-.input__group input:focus {
+.input__group textarea {
+    resize: none;
+}
+
+.input__group input:focus,
+.input__group textarea:focus {
     color: rgba(0, 0, 0, 0.8);
     outline: 1px solid var(--secondary-color-dark);
 }

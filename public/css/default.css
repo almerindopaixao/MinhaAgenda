@@ -26,3 +26,12 @@ a {
 .text-danger {
     color: red;
 }
+
+.main {
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.main > section {
+    margin-top: 30px;
+}

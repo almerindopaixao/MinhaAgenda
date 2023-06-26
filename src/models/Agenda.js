@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/sequelize.js';
 import { User } from './User.js';
+import { Contact } from './Contact.js';
 
 const Agenda = sequelize.define('Agenda', {
     id: {
@@ -12,6 +13,10 @@ const Agenda = sequelize.define('Agenda', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -21,5 +26,7 @@ const Agenda = sequelize.define('Agenda', {
         }
     }
 });
+
+Agenda.hasMany(Contact, { foreignKey: 'agendaId' });
 
 export { Agenda };

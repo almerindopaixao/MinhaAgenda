@@ -1,0 +1,20 @@
+<div>
+    <div>
+      <div>
+        <h3><%= agenda.title %></h3>
+        <p><%= agenda.description %></p>
+      </div>
+      <div>
+        <span>
+          <i class='bx bxs-group'></i>
+        </span>
+        <span><%= agenda.contactsCount %> Contatos</span>
+      </div>
+    </div>
+    <div>
+      <a href="/agenda/editar/<%= agenda.id %>">Editar</a>
+      <a href="/agenda/deletar/<%= agenda.id %>">Excluir</a>
+      <a href="/agenda/<%= agenda.id %>">Ver Contatos</a>
+      <button>Adicionar Contato</button>
+    </div>
+  </div>

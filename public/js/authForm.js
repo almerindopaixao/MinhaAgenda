@@ -1,36 +1,9 @@
 import { isEmail, isRange } from './utils/validator.js';
+import { Form } from './form.js';
 
-class Auth {
+class AuthForm extends Form {
     constructor(formId) {
-        this.form = document.getElementById(formId);
-    }
-
-    init() {
-        this.events();
-    }
-
-    events() {
-        if (!this.form) return
-        this.form.addEventListener('submit', event => {
-            event.preventDefault();
-            this.validate(event);
-        });
-    }
-
-    verificaSmall() {
-        const smalls = this.form.querySelectorAll('small[class="msg-text text-danger"]');
-        if (smalls.length) {
-            for(let small of smalls) {
-                small.remove()
-            }
-        }
-    }
-
-    msg(msg, elemento) {
-        const small = document.createElement('small');
-        small.setAttribute('class', 'msg-text text-danger')
-        small.innerHTML = msg 
-        elemento.insertAdjacentElement('afterend', small)
+        super(formId);
     }
 
     validate(event) {
@@ -73,5 +46,5 @@ class Auth {
     }
 }
 
-const auth = new Auth('form');
-auth.init();
+const authForm = new AuthForm('form');
+authForm.init();

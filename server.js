@@ -12,6 +12,8 @@ import helmet from 'helmet';
 // Routes
 import { homeRoute } from './src/routes/homeRoute.js';
 import { authRoute } from './src/routes/authRoute.js';
+import { agendaRoute } from './src/routes/agendaRoute.js';
+import { contactRoute } from './src/routes/contactRoute.js';
 
 // Connection DB
 import { sequelize } from './src/db/sequelize.js';
@@ -50,6 +52,7 @@ const port = 3001;
 // Apply Routes 
 app.use('/', homeRoute);
 app.use('/auth', authRoute);
+app.use('/agenda', agendaRoute);
 
 // 404
 app.use('*', (req, res) => {

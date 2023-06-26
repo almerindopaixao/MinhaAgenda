@@ -23,6 +23,7 @@ function handleClickLinkMenu() {
     this.classList.add('active')
 }
 
-linksMenu.forEach(
-    linkMenu => linkMenu.addEventListener('click', handleClickLinkMenu)
-)
+linksMenu.forEach((linkMenu) => {
+    if (linkMenu.href === document.location.href) linkMenu.classList.add('active');
+    linkMenu.addEventListener('click', handleClickLinkMenu);
+});

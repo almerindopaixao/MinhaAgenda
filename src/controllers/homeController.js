@@ -1,5 +1,12 @@
 export class HomeController {
-    index(_, res) {
-        res.render('home');
+    constructor(agendaService) {
+        this.agendaService = agendaService;
+    }
+
+    async index(req, res) {
+        const userId = req.session.user.id;
+        const agendas = await this.agendaService
+            .findAllWithContactsCountByUserId(userId);
+        res.render('home', { agendas });
     }
 }

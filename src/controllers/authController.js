@@ -14,13 +14,11 @@ export class AuthController {
     
             if (errors.length) {
                 console.log(errors);
-                return;
+                return res.redirect('back');
             }
     
             req.session.user = user;
-            req.session.save(function () {
-                return res.redirect('back');
-            });
+            req.session.save(() => res.redirect('back'));
             
         } catch (e) {
             console.error(e);
@@ -44,13 +42,12 @@ export class AuthController {
     
             if (errors.length) {
                 console.log(errors);
-                return;
+                return res.redirect('back');
             }
     
             req.session.user = user;
-            req.session.save(function () {
-                return res.redirect('/');
-            });
+            req.session.save(() => res.redirect('/'));
+
             
         } catch (e) {
             console.error(e);
