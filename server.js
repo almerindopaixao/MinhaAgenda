@@ -49,7 +49,7 @@ app.use(flash());
 app.set('views', resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-const port = 3001;
+const port = 3000;
 
 // Apply Routes 
 app.use('/', homeRoute);
