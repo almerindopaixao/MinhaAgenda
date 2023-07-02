@@ -1,7 +1,7 @@
 @import './default.css';
 
 .form {
-    --gap-default: 30px;
+    --gap-default: 40px;
 
     display: flex;
     flex-direction: column;
@@ -85,13 +85,13 @@
 }
 
 .field-required {
-    color: red;
+    color: var(--error-color);
 }
 
 .msg-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     position: absolute;
-    bottom: -0.8rem;
+    bottom: -0.9rem;
     transform: translateY(40%);
 }
 

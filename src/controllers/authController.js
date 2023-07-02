@@ -14,7 +14,10 @@ export class AuthController {
     
             if (errors.length) {
                 console.log(errors);
-                return res.redirect('back');
+                req.flash('errors', errors);
+
+                req.session.save(() => res.redirect('/auth/login'));
+                return;
             }
     
             req.session.user = user;
@@ -42,7 +45,10 @@ export class AuthController {
     
             if (errors.length) {
                 console.log(errors);
-                return res.redirect('back');
+                req.flash('errors', errors);
+
+                req.session.save(() => res.redirect('/auth/cadastro'));
+                return;
             }
     
             req.session.user = user;

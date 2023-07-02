@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <title>MinhaAgenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <link rel="stylesheet" href="/css/default.css">
+    <title>MinhaAgenda</title>
   </head>
-  <body>
-    <h1><%= error %></h1>
+  <body class="bg-primary">
+    <main class="main">
+      <div class="alert alert-error">
+        <i class='bx bx-error-circle'></i>
+        <span><%= error %></span>
+      </div>
+    </main>
   <body>
 </html>

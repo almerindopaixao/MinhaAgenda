@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import 'dotenv/config.js'
 import express from 'express';
 import session from 'express-session';
+import flash from 'express-flash';
 import connectSessionSequelize from 'connect-session-sequelize';
 import helmet from 'helmet';
 
@@ -43,6 +44,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(resolve(__dirname, 'public')));
 app.use(sessionOptions);
+app.use(flash());
 
 app.set('views', resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');

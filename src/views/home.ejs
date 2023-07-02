@@ -22,12 +22,16 @@
 
       <section>
         <a href="/agenda" class="add__button">
-          <i class='bx bx-plus'></i>
+          <i class='bx bxs-calendar-plus'></i>
           <span>Nova agenda</span>
         </a>
       </section>
 
       <section>
+        <% if (!agendas.length) { %>
+          <%- include('components/empty-section', { message: 'Nenhuma agenda cadastrada' }) %> 
+        <% } %>
+
         <% for (let agenda of agendas) { %>
           <%- include('components/agenda-card', { agenda }) %>
         <% } %>

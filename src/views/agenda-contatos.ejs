@@ -19,16 +19,20 @@
 
     <main class="main">
       <h1><%= agenda.title %></h1>
-      <p><%= agenda.description %></p>
+      <p class="subtitle"><%= agenda.description %></p>
 
       <section>
         <a href="/agenda/<%= agenda.id %>/contato" class="add__button">
-          <i class='bx bx-plus'></i>
+          <i class='bx bxs-user-plus'></i>
           <span>Novo contato</span>
         </a>
       </section>
 
       <section>
+        <% if (!agenda.contacts.length) { %>
+          <%- include('components/empty-section', { message: 'Nenhum contato cadastrado' }) %> 
+        <% } %>
+
         <% for (let contact of agenda.contacts) { %>
           <%- include('components/contact-card', { contact }) %>
         <% } %>

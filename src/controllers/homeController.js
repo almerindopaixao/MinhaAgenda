@@ -4,9 +4,15 @@ export class HomeController {
     }
 
     async index(req, res) {
-        const userId = req.session.user.id;
-        const agendas = await this.agendaService
-            .findAllWithContactsCountByUserId(userId);
-        res.render('home', { agendas });
+        try {
+            const userId = req.session.user.id;
+            const agendas = await this.agendaService
+                .findAllWithContactsCountByUserId(userId);
+    
+            res.render('home', { agendas });
+        } catch (e) {
+            console.error(e);
+            return res.render('500', { error: e });
+        }
     }
 }

@@ -1,0 +1,46 @@
+@import './default.css';
+
+body {
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+img {
+    width: 80%;
+    max-height: 60%;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.4rem;
+
+    margin-top: 60px;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+@media only screen and (min-width: 992px) { 
+    a {
+        font-size: 1.6rem;
+    }
+
+    img {
+        width: 60%;
+    }
+}

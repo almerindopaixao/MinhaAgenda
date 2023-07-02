@@ -88,6 +88,7 @@
                         value="<%= contact.phone %>" 
                         placeholder="(99) 99999-9999"
                         pattern="\(\d{2}\) \d{5}-\d{4}"
+                        title="(99) 99999-9999"
                     />
                 </div>
 
@@ -114,7 +115,7 @@
                   placeholder="Qualquer coisa referente à identificação do contato"
                 ><%= contact.notes %></textarea>
             </div>
-            <button type="submit"><%= contact.id ? 'Editar' : 'Criar' %></button>
+            <button type="submit"><%= contact.id ? 'Confirmar' : 'Criar' %></button>
           </form>
         </section>
     </main>

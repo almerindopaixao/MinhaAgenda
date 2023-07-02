@@ -3,29 +3,33 @@
 body {
     background: var(--primary-color);
     color: rgba(0, 0, 0, 0.6);
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
     line-height: 1.6em;
     
-    height: 100vh;
-
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
 }
 
 .auth__container {
+    max-width: 800px;
     background: var(--white-color);
     border-radius: 8px;
-    padding: 60px 60px 75px 60px;
+    padding: 40px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
 
-    margin-inline: 30px;
+.auth__container > *:not(:first-child) {
+    margin-top: 45px;
 }
 
 .auth__header {
-    margin-bottom: 45px;
     line-height: 2.2rem;
+}
+
+.auth__header h1 {
+    font-size: 1.7rem;
 }
 
 @media only screen and (min-width: 576px)  { 
@@ -44,6 +48,10 @@ body {
     .auth__container {
         width: 60%;
     }  
+
+    .auth__header h1 {
+        font-size: 2.1rem;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -52,8 +60,8 @@ body {
     }  
 }
 
-@media (min-width: 1400px) {
+@media only screen and (min-width: 1400px) {
     .auth__container {
-        width: 30%;
+        width: 40%;
     }  
 }
