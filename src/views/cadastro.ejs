@@ -19,6 +19,11 @@
         <div class="auth__header">
             <h1>Criar conta</h1>
         </div>
+
+        <% if (messages.errors) { %>
+            <%- include('components/error-alert', { message: messages.errors }) %>
+        <% } %>
+
         <div class="auth__content">
             <form class="form" id="form" method="POST" action="/auth/cadastro">
                 <div class="form__group">
@@ -38,6 +43,12 @@
                 <div class="input__group">
                     <label for="password">Senha <span class="field-required">*</span></label>
                     <input type="password" id="password" name="password" required="required" />
+                </div>
+                <div class="input__group">
+                    <span class="form__register">
+                        Já tem uma conta ?
+                        <a href="/auth/login">Fazer login</a>
+                    </span>
                 </div>
 
                 <button type="submit">Cadastrar</button>

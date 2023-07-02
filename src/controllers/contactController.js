@@ -45,7 +45,7 @@ export class ContactController {
             if (!contact) return res.render('404');
 
             res.render('contact', { contact });
-        } catch (err) {
+        } catch (e) {
             console.error(e);
             return res.render('500', { error: e });
         }

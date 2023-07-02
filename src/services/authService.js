@@ -1,5 +1,5 @@
 import { User } from '../models/User.js';
-import { createHashMD5 } from '../utils/create-hash-md5.js';
+import { generatePasswordHash, checkPasswordHash } from '../utils/hash-password.js';
 import { isEmail, isRange } from '../../public/js/utils/validator.js';
 
 export class AuthService {
@@ -23,9 +23,9 @@ export class AuthService {
 
         if (!user) return [null, ['Usuário não existe']];
 
-        const passwordHash = createHashMD5(credentials.password);
+        const passwordIsValid = await checkPasswordHash(credentials.password,  user.password);
 
-        if (passwordHash !== user.password) return [null, ['Senha Inválida']];
+        if (!passwordIsValid) return [null, ['Senha Inválida']];
 
         return [user, []];
     }
@@ -54,9 +54,11 @@ export class AuthService {
 
         if (userFinded) return [null, ['Usuário já existe']];
 
+        const passwordEncrypted = await generatePasswordHash(userData.password)
+
         const newUser = await User.create({
             ...userData,
-            password: createHashMD5(userData.password),
+            password: passwordEncrypted,
         });
 
         return [newUser, []];

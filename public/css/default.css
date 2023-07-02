@@ -6,9 +6,18 @@
     --primary-color: #343a40;
     --primary-color-light: #a3abb3;
     --white-color: #F7F6FB;
+    --error-bg-color: #f8d7da;
+    --error-color: #d74242;
+    --success-bg-color: #d4edda;
+    --success-color: #418944;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
 }
 
 *,
@@ -21,10 +30,11 @@
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 .text-danger {
-    color: red;
+    color: var(--error-color);
 }
 
 .main {
@@ -34,4 +44,85 @@ a {
 
 .main > section {
     margin-top: 30px;
+}
+
+.alert {
+    width: 100%;
+
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.alert__content span {
+    display: block;
+}
+
+.alert i {
+    font-size: 1.4rem;
+}
+
+.alert-error {
+    background-color: var(--error-bg-color);
+    color: #976968;
+}
+
+.alert-error i {
+    color: var(--error-color);
+}
+
+.alert-success {
+    background-color: var(--success-bg-color);
+    color: #658266;
+}
+
+.alert-success i {
+    color: var(--success-color);
+}
+
+.empty {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+
+    gap: 20px;
+
+    text-align: center;
+}
+
+.empty img {
+    width: 95%;
+    height: 200px;
+}
+
+.empty p {
+    font-size: 1.3rem;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+.subtitle {
+    margin-top: 8px;
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+@media only screen and (min-width: 992px) { 
+    .empty p {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.1rem;
+    }
 }

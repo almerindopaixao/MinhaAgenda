@@ -19,6 +19,11 @@
         <div class="auth__header">
             <h1>Entrar no sistema</h1>
         </div>
+        
+        <% if (messages.errors) { %>
+            <%- include('components/error-alert', { message: messages.errors }) %>
+        <% } %> 
+
         <div class="auth__content">
             <form class="form" id="form" method="POST" action="/auth/login">
                 <div class="input__group">

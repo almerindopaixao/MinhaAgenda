@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/almerindopaixao/MinhaAgenda#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.7",
     "ejs": "^3.1.9",
     "express": "^4.18.2",

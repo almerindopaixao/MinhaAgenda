@@ -4,10 +4,8 @@
         <h3><%= agenda.title %></h3>
         <p><%= agenda.description %></p>
       </div>
-      <div>
-        <span>
-          <i class='bx bxs-group'></i>
-        </span>
+      <div class="card__contacts-count">
+        <i class='bx bxs-group'></i>
         <span><%= agenda.contactsCount %> Contatos</span>
       </div>
     </div>
@@ -20,7 +18,13 @@
         <i class='bx bx-trash' ></i>
         Excluir
       </a>
-      <a href="/agenda/<%= agenda.id %>">Ver Contatos</a>
-      <a href="/agenda/<%= agenda.id %>/contato">Adicionar Contato</a>
+      <a href="/agenda/<%= agenda.id %>">
+        <i class='bx bxs-contact'></i>
+        Ver Contatos
+      </a>
+      <a href="/agenda/<%= agenda.id %>/contato">
+        <i class='bx bx-user-plus'></i>
+        Adicionar Contato
+      </a>
     </div>
 </div>

@@ -17,6 +17,10 @@
     gap: 5px;
 }
 
+.add__button i {
+    font-size: 1.2rem;
+}
+
 .add__button:hover {
     background-color: var(--secondary-color-dark);
     transition: background-color 0.5s ease;
